@@ -9,7 +9,9 @@ namespace SalesCalculator {
     class Program {
 
         static void Main(string[] args) {
+            //List<Sale> sales = ReadSales("Sales.csv");
         }
+        //List 2-15
         //売上データを読み込み、Saleオブジェクトのリストを返す
         static List<Sale> ReadSales(string filepath) {
             List<Sale> sales = new List<Sale>();
