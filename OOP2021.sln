@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceConverter", "Distan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesCalculator", "SalesCalculator\SalesCalculator.csproj", "{DA013555-02A6-4806-9193-8585397D379F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exercise", "Exercise", "{0F7F8725-545F-43C9-AFEC-035506035FDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2", "Exercise2\Exercise2.csproj", "{AAEECBAC-1191-467F-B397-3045FBDBA8EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1", "Exercise1\Exercise1.csproj", "{383C728A-9502-4B70-AB0C-82C5FF5B0EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +29,14 @@ Global
 		{DA013555-02A6-4806-9193-8585397D379F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA013555-02A6-4806-9193-8585397D379F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA013555-02A6-4806-9193-8585397D379F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAEECBAC-1191-467F-B397-3045FBDBA8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAEECBAC-1191-467F-B397-3045FBDBA8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAEECBAC-1191-467F-B397-3045FBDBA8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAEECBAC-1191-467F-B397-3045FBDBA8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383C728A-9502-4B70-AB0C-82C5FF5B0EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383C728A-9502-4B70-AB0C-82C5FF5B0EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383C728A-9502-4B70-AB0C-82C5FF5B0EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383C728A-9502-4B70-AB0C-82C5FF5B0EB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +44,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3B2D8B46-47B1-4F89-8F38-5B0073B239F1} = {339B7F45-B836-4079-AEDC-1B29E4B86CB5}
 		{DA013555-02A6-4806-9193-8585397D379F} = {339B7F45-B836-4079-AEDC-1B29E4B86CB5}
+		{0F7F8725-545F-43C9-AFEC-035506035FDA} = {339B7F45-B836-4079-AEDC-1B29E4B86CB5}
+		{AAEECBAC-1191-467F-B397-3045FBDBA8EE} = {0F7F8725-545F-43C9-AFEC-035506035FDA}
+		{383C728A-9502-4B70-AB0C-82C5FF5B0EB6} = {0F7F8725-545F-43C9-AFEC-035506035FDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7FE0226-1FA1-4BDE-826C-7C32A0534B1F}
