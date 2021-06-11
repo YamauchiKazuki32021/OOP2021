@@ -13,6 +13,7 @@ namespace Exercise1 {
             Year = year;
             Month = month;
         }
+        //21世紀ならtrue(プロパティ)
         public bool Is21Century {
             get {
               return 2001 <= Year && Year <= 2100;  

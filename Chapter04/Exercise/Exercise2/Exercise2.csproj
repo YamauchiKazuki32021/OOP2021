@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,6 +53,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Section01\Section01.csproj">
+      <Project>{7de441f0-c848-403a-821e-e1f29ed9656a}</Project>
+      <Name>Section01</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Exercise1\Exercise1.csproj">
       <Project>{60d5deda-5d22-4342-92bd-7b9123a88e44}</Project>
       <Name>Exercise1</Name>
