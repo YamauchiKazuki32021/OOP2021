@@ -36,10 +36,15 @@ namespace Test02 {
         //問題１　合計値を表示
         //　　　　出力結果【618】
         private static void Exercise01(List<int> numbers) {
+            foreach (int n in numbers) {
+                Console.WriteLine(numbers);
+            }
 
-
-
+                
         }
+
+
+    }
 
         //問題２　偶数の最大値を表示
         //　　　　出力結果【94】
