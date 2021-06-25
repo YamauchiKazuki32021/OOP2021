@@ -12,13 +12,11 @@ namespace Test01 {
         public ScoreCounter(string filePath) {
             _scores = ReadScore(filePath);
 
-
-
         }
 
 
         //メソッドの概要： 
-        public IEnumerable<Student> ReadScore(string filePath) {
+        private static IEnumerable<Student> ReadScore(string filePath) {
             List<Student> scores = new List<Student>();
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines) {
@@ -37,7 +35,6 @@ namespace Test01 {
 
         //メソッドの概要： 
         public IDictionary<string, int> GetPerStudentScore() {
-
             var dict = new Dictionary<string, int>();
             foreach (var score in _scores) {
                 if (dict.ContainsKey(score.Subject))
@@ -49,7 +46,6 @@ namespace Test01 {
             }
 
             return dict;
-
 
 
         }
