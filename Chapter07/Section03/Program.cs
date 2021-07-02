@@ -41,6 +41,28 @@ namespace Section03 {
                 Console.WriteLine("{0}={1}", item.Key, item.Value);
             }
             Console.WriteLine();
+
+            //7.2.3
+            var count = abbrs.Count;
+            Console.WriteLine("----7.2.3----");
+            Console.WriteLine(abbrs.Count);
+            Console.WriteLine();
+
+            //7.2.3(Removeの呼び出し)
+            Console.WriteLine("----7.2.3 Removeの呼び出し----");
+            if (abbrs.Remove("IOC")) {
+                Console.WriteLine("削除されました。");
+            }
+            if (abbrs.Remove("IOC")) {
+                Console.WriteLine("削除されました。");
+            } else {
+                Console.WriteLine("削除エラー");
+            }
+
+            //7.2.4
+            foreach(var item in abbrs.Where(x=>x.Key.Length==3)) {
+                Console.WriteLine("{0}={1}", item.Key, item.Value);
+            }
         }
     }
 }
