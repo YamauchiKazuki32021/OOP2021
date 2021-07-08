@@ -14,7 +14,7 @@ namespace Exercise2 {
 
 
         Stopwatch sw = new Stopwatch();
-
+        Timer timer = new Timer();
 
         public Form1() {
             InitializeComponent();
@@ -26,19 +26,32 @@ namespace Exercise2 {
 
         private void btStart_Click(object sender, EventArgs e) {
             sw.Start();
-
+            timer1.Start();
+            
         }
 
         private void Tm_Tick(object sender, EventArgs e) {
-            
         }
 
         private void btStop_Click(object sender, EventArgs e) {
             sw.Stop();
+            timer1.Stop();
         }
 
         private void btReset_Click(object sender, EventArgs e) {
+            sw.Reset();
             lbTimerDisp.Text = sw.Elapsed.ToString(@"hh\:mm\:ss\.ff");
+            lbLapDisp.Items.Clear();
+        }
+        //画面更新用タイマーのタイムアウト
+        private void timer1_Tick(object sender, EventArgs e) {
+            lbTimerDisp.Text = sw.Elapsed.ToString(@"hh\:mm\:ss\.ff");
+            timer1.Interval = 1;
+            
+        }
+
+        private void btLap_Click(object sender, EventArgs e) {
+            lbLapDisp.Items.Insert(0,sw.Elapsed.ToString(@"hh\:mm\:ss\.ff"));
         }
     }
 }
