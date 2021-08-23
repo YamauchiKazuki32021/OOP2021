@@ -222,6 +222,7 @@ namespace Exercise1 {
             this.Controls.Add(this.tbOutput);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDay)).EndInit();
