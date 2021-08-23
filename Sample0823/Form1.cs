@@ -18,8 +18,8 @@ namespace Sample0823 {
             int num1 = int.Parse(Value.Text);
             int num2 = int.Parse(Jyou.Text);
             int num3 =1;
-            for (int i=0;i<num2;i++) {
-                  num3 = num1 *num1;
+            for (int i=1;i<=num2;i++) {
+                  num3 *= num1;
             }
             Result.Text = num3.ToString();
         }
