@@ -30,7 +30,14 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_2(string file) {
-
+            var xdoc = XDocument.Load(file);
+            var xelements = xdoc.Root.Elements().OrderBy(x=>(string)(x.Element("firstplayed")));
+            foreach (var item in xelements) {
+                XElement xname = item.Element("name");
+                XAttribute xkanji = xname.Attribute("kanji");
+                
+                Console.WriteLine(xkanji.Value);
+            }
         }
 
         private static void Exercise1_3(string file) {
