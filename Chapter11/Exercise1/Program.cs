@@ -33,15 +33,20 @@ namespace Exercise1 {
             var xdoc = XDocument.Load(file);
             var xelements = xdoc.Root.Elements().OrderBy(x=>(string)(x.Element("firstplayed")));
             foreach (var item in xelements) {
-                XElement xname = item.Element("name");
-                XAttribute xkanji = xname.Attribute("kanji");
-                
-                Console.WriteLine(xkanji.Value);
+                XAttribute name = item.Element("name").Attribute("kanji");
+                Console.WriteLine(name.Value);
             }
         }
 
         private static void Exercise1_3(string file) {
-            
+            var xdoc = XDocument.Load(file);
+            var xmax = xdoc.Descendants("teammembers").Select(e => int.Parse(e.Value)).Max().ToString();
+            var xelements = xdoc.Root.Elements().Where(e => e.Element("teammembers").Value == xmax);
+
+            foreach (var item in xelements) {
+                Console.WriteLine(item.Element("name").Value);
+            }
+
         }
     }
 }
