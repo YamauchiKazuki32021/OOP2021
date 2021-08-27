@@ -8,17 +8,37 @@ using System.Xml.Linq;
 namespace Section01 {
     class Program {
         static void Main(string[] args) {
-            var xdoc = XDocument.Load("novelists.xml");
-            //var xelements = xdoc.Root.Elements().Where(x => ((DateTime)x.Element("birth")).Year >= 1900);
-            //var xelements = xdoc.Root.Elements().OrderBy(x => (string)(x.Element("name").Attribute("kana")));
 
-            foreach (var xnovelist in xdoc.Root.Elements()) {
-                var xname = xnovelist.Element("name");
-                var works = xnovelist.Element("masterpieces").Elements("title").Select(x => x.Value);
-                //var xbirth = (DateTime)xnovelist.Element("birth");
-                //XAttribute xkana = xname.Attribute("kana");
-                Console.WriteLine("{0}-{1}",xname.Value, string.Join(",",works));
+            var novelists = ReadNovelists();
+
+            foreach (var novelist in novelists) {
+                Console.WriteLine("{0} ({1}-{2}) - {3}",novelist.Name,novelist.Birth.Year,novelist.Death.Year,string.Join(",",novelist.Masterpieces));
             }
         }
+        //カスタムクラスのオブジェクトとして要素を取り出す
+       static public IEnumerable<Novelist> ReadNovelists() {
+            var xdoc = XDocument.Load("novelists.xml");//XMLファイルのロード
+            var novelists = xdoc.Root.Elements()
+                                .Select(x => new Novelist {
+                                    Name = (string)x.Element("name"),
+                                    KanaName = (string)(x.Element("name").Attribute("kana")),
+                                    Birth = (DateTime)x.Element("birth"),
+                                    Death = (DateTime)x.Element("death"),
+                                    Masterpieces = x.Element("masterpieces")
+                                                    .Elements("title")
+                                                    .Select(title => title.Value)
+                                                    .ToArray()
+                                });
+            return novelists.ToArray();
+        }
+
+
+
+
     }
 }
+
+
+
+
+
