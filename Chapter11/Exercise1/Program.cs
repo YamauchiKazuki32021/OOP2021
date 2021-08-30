@@ -17,7 +17,11 @@ namespace Exercise1 {
 
             Exercise1_3(file);
             Console.WriteLine("-------");
+
+            Exercise1_4(file);
         }
+
+
 
         private static void Exercise1_1(string file) {
             var xdoc = XDocument.Load(file);
@@ -55,6 +59,19 @@ namespace Exercise1 {
             //foreach (var item in xelements) {
             //    Console.WriteLine(item.Element("name").Value);
             //}
+
+        }
+
+        private static void Exercise1_4(string file) {
+            var newfile = "sports.xml";
+            var element = new XElement("sports",
+                new XElement("name", "サッカー", new XAttribute("kanji","蹴球")),
+                new XElement("teammembers","11"),
+                new XElement("firstplayed","1873"));
+            var xdoc = new XDocument(element);
+            
+            xdoc.Root.Add(newfile);
+            xdoc.Save(newfile);
 
         }
     }
