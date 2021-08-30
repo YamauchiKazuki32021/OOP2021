@@ -69,8 +69,6 @@ namespace Exercise1 {
                 new XElement("teammembers","11"),
                 new XElement("firstplayed","1873"));
             var xdoc = new XDocument(element);
-            
-            xdoc.Root.Add(newfile);
             xdoc.Save(newfile);
 
         }
