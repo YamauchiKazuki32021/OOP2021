@@ -40,12 +40,21 @@ namespace Exercise1 {
 
         private static void Exercise1_3(string file) {
             var xdoc = XDocument.Load(file);
-            var xmax = xdoc.Descendants("teammembers").Select(e => int.Parse(e.Value)).Max().ToString();
-            var xelements = xdoc.Root.Elements().Where(e => e.Element("teammembers").Value == xmax);
+            var sports = xdoc.Root.Elements()
+                                    .Select(x=> new {
+                                        Name = x.Element("name").Value,
+                                        Teammembers = x.Element("teammembers").Value
+                                     })
+                                        .OrderByDescending(x=>int.Parse(x.Teammembers)).First();
+            Console.WriteLine("{0}",sports.Name);
+                                    
+                                    
+            //var xmax = xdoc.Descendants("teammembers").Select(e => int.Parse(e.Value)).Max().ToString();
+            //var xelements = xdoc.Root.Elements().Where(e => e.Element("teammembers").Value == xmax);
 
-            foreach (var item in xelements) {
-                Console.WriteLine(item.Element("name").Value);
-            }
+            //foreach (var item in xelements) {
+            //    Console.WriteLine(item.Element("name").Value);
+            //}
 
         }
     }
