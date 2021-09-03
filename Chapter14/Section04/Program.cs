@@ -25,6 +25,8 @@ namespace Section04 {
             Console.WriteLine("3:宇都宮");//4110
             Console.WriteLine("4:水戸");//4010
             Console.WriteLine("9:その他(直接入力)");//任意のコード
+            Console.WriteLine();
+            Console.Write(">");
             var i = int.Parse(Console.ReadLine());
             int code = 0;
             switch (i) {
