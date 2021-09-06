@@ -19,6 +19,7 @@ namespace RssReader {
 
         private void btRead_Click(object sender, EventArgs e) {
             setRssTitle(tbUrl.Text);
+            
 
         }
         //指定したURL先からXMLデータを取得し、Title要素を取得し、リストボックスへセットする
@@ -32,12 +33,16 @@ namespace RssReader {
                 XDocument xdoc = XDocument.Load(stream);
                 var nodes = xdoc.Root.Descendants("title");
                 foreach (var node in nodes) {
-                    string s = Regex.Replace(node.Value, "【|】", "");
+                    string s = Regex.Replace(node.Value, "", "");
                     lbTitles.Items.Add(s);
                 }
             }
 
         }
 
+        private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
+            //XDocument = XDocument.Load(string uri);
+            //wbBrowser.Url(lbTitles.Items));
+        }
     }
 }
