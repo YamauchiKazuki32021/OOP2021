@@ -22,6 +22,9 @@ namespace RssReader {
             
 
         }
+        List<String> link = new List<string>();
+        /* https://news.yahoo.co.jp/rss/topics/domestic.xml */ //URLコピペ用
+
         //指定したURL先からXMLデータを取得し、Title要素を取得し、リストボックスへセットする
         private void setRssTitle(string uri) {
             var uriString = string.Format(tbUrl.Text);
@@ -32,17 +35,27 @@ namespace RssReader {
 
                 XDocument xdoc = XDocument.Load(stream);
                 var nodes = xdoc.Root.Descendants("title");
+                var links = xdoc.Root.Descendants("link");
                 foreach (var node in nodes) {
-                    string s = Regex.Replace(node.Value, "", "");
-                    lbTitles.Items.Add(s);
+ 
+                    lbTitles.Items.Add(node);
+                    
+                }
+                foreach (var item in links) {
+                    link.Add(item.Value);
                 }
             }
 
         }
 
         private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
-            //XDocument = XDocument.Load(string uri);
-            //wbBrowser.Url(lbTitles.Items));
+            //var title = (XElement)lbTitles.SelectedItem;
+            //var item = title.NextNode.ToString();
+            //    var s = Regex.Replace(item, "<link>", "");
+            //    wbBrowser.Navigate(s);
+            wbBrowser.Navigate(link[lbTitles.SelectedIndex]);
+
+            
         }
     }
 }
