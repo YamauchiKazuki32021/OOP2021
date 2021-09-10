@@ -66,11 +66,16 @@ namespace RssReader {
             //wbBrowser.Navigate(link[lbTitles.SelectedIndex]);
             lbDesc.Text = descs[lbTitles.SelectedIndex];
             lbDate.Text = dates[lbTitles.SelectedIndex].ToString();
+            
 
 
 
         }
 
-
+        private void btDisp_Click(object sender, EventArgs e) {
+            Form2 form2 = new Form2();
+            //form2.ScreenShow(lbTitles.SelectedIndex);
+            form2.Show();
+        }
     }
 }
