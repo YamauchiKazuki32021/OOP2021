@@ -24,34 +24,38 @@ namespace RssReader {
         }
         List<String> link = new List<string>();
         List<String> descs = new List<string>();
+        List<DateTime> dates = new List<DateTime>();
         /* https://news.yahoo.co.jp/rss/topics/domestic.xml */ //URLコピペ用
 
         //指定したURL先からXMLデータを取得し、Title要素を取得し、リストボックスへセットする
         private void setRssTitle(string uri) {
-            var uriString = string.Format(tbUrl.Text);
-            using (var wc = new WebClient()) {
-                wc.Headers.Add("Content-type", "charset=UTF-8");
-                var url = new Uri(uriString);
-                var stream = wc.OpenRead(url);
+          var uriString = string.Format(tbUrl.Text);
+           using (var wc = new WebClient()) {
+              wc.Headers.Add("Content-type", "charset=UTF-8");
+              var url = new Uri(uriString);
+              var stream = wc.OpenRead(url);
 
-                XDocument xdoc = XDocument.Load(stream);
-                var nodes = xdoc.Root.Descendants("title");
-                var links = xdoc.Root.Descendants("link");
-                var desc = xdoc.Root.Descendants("description");
-                var items = xdoc.Root.Descendants("item");
+              XDocument xdoc = XDocument.Load(stream);
+              var nodes = xdoc.Root.Descendants("title");
+              var links = xdoc.Root.Descendants("link");
+              var desc = xdoc.Root.Descendants("description");
+              var items = xdoc.Root.Descendants("item");
+              var date = xdoc.Root.Descendants("pubDate");
 
-                foreach (var node in items) {
-                    //lbTitles.Items.Add(node.Value);
-                    lbTitles.Items.Add(node.Element("title").Value);
+                 foreach (var node in items) {
+                     //lbTitles.Items.Add(node.Value);
+                     lbTitles.Items.Add(node.Element("title").Value);
+                 }
+                 foreach (var item in links) {
+                     link.Add(item.Value);
+                 }
+                 foreach (var item in desc) {
+                     descs.Add((string)item);
+                 }
+                foreach (var item in date) {
+                    dates.Add((DateTime)item);
                 }
-                foreach (var item in links) {
-                    link.Add(item.Value);
-                }
-                foreach (var item in desc) {
-                    descs.Add((string)item);
-                }
-            }
-
+           }
         }
 
         private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
@@ -59,8 +63,11 @@ namespace RssReader {
             //var item = title.NextNode.ToString();
             //    var s = Regex.Replace(item, "<link>", "");
             //    wbBrowser.Navigate(s);
-            wbBrowser.Navigate(link[lbTitles.SelectedIndex]);
+            //wbBrowser.Navigate(link[lbTitles.SelectedIndex]);
             lbDesc.Text = descs[lbTitles.SelectedIndex];
+            lbDate.Text = dates[lbTitles.SelectedIndex].ToString();
+
+
 
         }
 
