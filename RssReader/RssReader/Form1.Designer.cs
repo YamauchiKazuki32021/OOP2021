@@ -56,7 +56,7 @@ namespace RssReader {
             // 
             this.lbTitles.FormattingEnabled = true;
             this.lbTitles.ItemHeight = 12;
-            this.lbTitles.Location = new System.Drawing.Point(18, 243);
+            this.lbTitles.Location = new System.Drawing.Point(18, 245);
             this.lbTitles.Name = "lbTitles";
             this.lbTitles.Size = new System.Drawing.Size(301, 844);
             this.lbTitles.TabIndex = 2;
@@ -75,30 +75,29 @@ namespace RssReader {
             // 
             // lbDesc
             // 
-            this.lbDesc.AutoSize = true;
-            this.lbDesc.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lbDesc.Location = new System.Drawing.Point(12, 220);
+            this.lbDesc.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbDesc.Location = new System.Drawing.Point(333, 294);
             this.lbDesc.Name = "lbDesc";
-            this.lbDesc.Size = new System.Drawing.Size(0, 20);
+            this.lbDesc.Size = new System.Drawing.Size(1162, 518);
             this.lbDesc.TabIndex = 6;
             // 
             // lbDate
             // 
             this.lbDate.AutoSize = true;
-            this.lbDate.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.Location = new System.Drawing.Point(16, 180);
+            this.lbDate.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lbDate.Location = new System.Drawing.Point(334, 222);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(40, 18);
+            this.lbDate.Size = new System.Drawing.Size(0, 27);
             this.lbDate.TabIndex = 7;
-            this.lbDate.Text = "label2";
             // 
             // wbBrowser
             // 
-            this.wbBrowser.Location = new System.Drawing.Point(325, 243);
+            this.wbBrowser.Location = new System.Drawing.Point(1276, 1001);
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
             this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(1170, 843);
+            this.wbBrowser.Size = new System.Drawing.Size(219, 85);
             this.wbBrowser.TabIndex = 3;
             // 
             // btDisp
