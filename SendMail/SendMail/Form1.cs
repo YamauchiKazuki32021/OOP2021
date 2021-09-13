@@ -33,6 +33,7 @@ namespace SendMail {
                 SmtpClient smtpClient = new SmtpClient();
                 //メール送信のための認証情報を設定（ユーザー名、パスワード）
                 smtpClient.Credentials
+                    
                     = new NetworkCredential("ojsinfosys01@gmail.com", "Infosys2021");
                 smtpClient.Host = "smtp.gmail.com";
                 smtpClient.Port = 587;

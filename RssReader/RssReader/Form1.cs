@@ -64,18 +64,23 @@ namespace RssReader {
             //    var s = Regex.Replace(item, "<link>", "");
             //    wbBrowser.Navigate(s);
             //wbBrowser.Navigate(link[lbTitles.SelectedIndex]);
+
             lbDesc.Text = descs[lbTitles.SelectedIndex];
             lbDate.Text = dates[lbTitles.SelectedIndex].ToString();
-            
+                        
 
 
 
         }
 
         private void btDisp_Click(object sender, EventArgs e) {
-            Form2 form2 = new Form2();
-            //form2.ScreenShow(lbTitles.SelectedIndex);
+            
+            var links = link[lbTitles.SelectedIndex];
+            //var url = new Uri(link);
+            var form2 = new Form2(links);
+            //Form2.wbBrowser.Url = new Uri([lbTitles.SelectedIndex]);
             form2.Show();
+            
         }
     }
 }
