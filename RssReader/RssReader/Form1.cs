@@ -76,9 +76,7 @@ namespace RssReader {
         private void btDisp_Click(object sender, EventArgs e) {
             
             var links = link[lbTitles.SelectedIndex];
-            //var url = new Uri(link);
             var form2 = new Form2(links);
-            //Form2.wbBrowser.Url = new Uri([lbTitles.SelectedIndex]);
             form2.Show();
             
         }
