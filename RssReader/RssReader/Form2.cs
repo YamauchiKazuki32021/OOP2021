@@ -32,20 +32,22 @@ namespace RssReader {
             //} else {
             //    btNext.Enabled = false;
             //}
+            btBack.Enabled = wbBrowser.CanGoBack;
+            btNext.Enabled = wbBrowser.CanGoForward;
         }
 
         private void btBack_Click(object sender, EventArgs e) {
-            if (wbBrowser.CanGoBack) {
+            
                 wbBrowser.GoBack();
-            }
+            
             
         }
 
         private void btNext_Click(object sender, EventArgs e) {
-            if (wbBrowser.CanGoForward){
+            
                 wbBrowser.GoForward();
 
-            }
+            
             
         }
     }
