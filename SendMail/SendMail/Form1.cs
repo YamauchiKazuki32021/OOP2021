@@ -18,7 +18,7 @@ namespace SendMail
         {
             InitializeComponent();
         }
-
+        Settings s = new Settings();
         private void btSend_Click(object sender, EventArgs e)
         {
             try
@@ -29,6 +29,9 @@ namespace SendMail
                 mailMessage.From = new MailAddress("ojsinfosys01@gmail.com");
                 //宛先（To）
                 mailMessage.To.Add(tbTo.Text);
+                mailMessage.CC.Add(tbCc.Text);
+                mailMessage.Bcc.Add(tbBcc.Text);
+
                 //件名（タイトル）
                 mailMessage.Subject = tbTitle.Text;
                 //本文
@@ -38,10 +41,10 @@ namespace SendMail
                 SmtpClient smtpClient = new SmtpClient();
                 //メール送信のための認証情報を設定（ユーザー名、パスワード）
                 smtpClient.Credentials
-                    = new NetworkCredential("chacham.101001@gmail.com","kaz1010!");
-                smtpClient.Host = "smtp.gmail.com";
-                smtpClient.Port = 587;
-                smtpClient.EnableSsl = true;
+                    = new NetworkCredential(Settings.MailAddr,Settings.Pass);
+                smtpClient.Host = Settings.Host;
+                smtpClient.Port = Settings.Port;
+                smtpClient.EnableSsl = Settings.Ssl;
                 smtpClient.Send(mailMessage);
 
                 MessageBox.Show("送信完了");
@@ -50,6 +53,11 @@ namespace SendMail
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btConfig_Click(object sender, EventArgs e)
+        {
+            new ConfigForm().ShowDialog();
         }
     }
 }
