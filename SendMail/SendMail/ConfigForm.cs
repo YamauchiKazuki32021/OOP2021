@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+
 
 namespace SendMail
 {
@@ -35,6 +37,11 @@ namespace SendMail
         private void btOk_Click(object sender, EventArgs e) {
             SettingRegist();//送信データ登録
             this.Close();
+            var set = new Settings {
+
+            }
+              
+
         }
         //送信データ登録
         private void SettingRegist() {
@@ -49,5 +56,8 @@ namespace SendMail
         private void btCancel_Click(object sender, EventArgs e) {
             this.Close();
         }
+
+
+        
     }
 }

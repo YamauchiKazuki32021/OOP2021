@@ -9,6 +9,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SendMail
 {
@@ -55,7 +56,8 @@ namespace SendMail
                 smtpClient.Port = s.Port;
                 smtpClient.EnableSsl = s.Ssl;
                 smtpClient.SendCompleted += SmtpClient_SendCompleted;
-                smtpClient.SendAsync(mailMessage,null);
+                string userState = "SendMail";
+                smtpClient.SendAsync(mailMessage,userState);
 
                 
                 
@@ -67,14 +69,26 @@ namespace SendMail
         }
 
         private void SmtpClient_SendCompleted(object sender, AsyncCompletedEventArgs e) {
-            MessageBox.Show("送信完了");
+            if(e.Error != null) {
+                MessageBox.Show(e.Error.Message);
+            } else {
+                MessageBox.Show("送信完了");
+            }
+            
         }
 
         private void btConfig_Click(object sender, EventArgs e)
         {
             new ConfigForm().ShowDialog();
         }
-        private void Mail(object sender,AsyncCompletedEventArgs e) {
+
+        private void Form1_Load(object sender, EventArgs e) {
+            try {
+                XElement element = XElement.Load("Settings.xml");
+            } catch (Exception) {
+                new ConfigForm().ShowDialog();
+                
+            }
             
         }
     }
