@@ -16,35 +16,38 @@ namespace SendMail
         {
             InitializeComponent();
         }
-        
+        private Settings s =  Settings.getInstance();
 
         private void btDefault_Click(object sender, EventArgs e) {
-            tbHost.Text = Settings.sHost();
-            tbPort.Text = Settings.sPort();
-            tbUserName.Text = Settings.sMailAddr();
-            tbPass.Text = Settings.sPass();
-            tbSender.Text = Settings.sMailAddr();
+            tbHost.Text = s.sHost();
+            tbPort.Text = s.sPort();
+            tbUserName.Text = s.sMailAddr();
+            tbPass.Text = s.sPass();
+            tbSender.Text = s.sMailAddr();
+            cbSsl.Checked = s.bSsl();
         }
 
         private void btApply_Click(object sender, EventArgs e) {
-            Settings.Host = tbHost.Text;
-            Settings.MailAddr = tbUserName.Text;
-            Settings.Pass = tbPass.Text;
-            Settings.Port = int.Parse(tbPort.Text);
-            Settings.Sender = tbSender.Text;
+            SettingRegist();
         }
 
+
         private void btOk_Click(object sender, EventArgs e) {
-            Settings.Host = tbHost.Text;
-            Settings.MailAddr = tbUserName.Text;
-            Settings.Pass = tbPass.Text;
-            Settings.Port = int.Parse(tbPort.Text);
-            Settings.Sender = tbSender.Text;
-            Close();
+            SettingRegist();//送信データ登録
+            this.Close();
+        }
+        //送信データ登録
+        private void SettingRegist() {
+            s.Host = tbHost.Text;
+            s.MailAddr = tbUserName.Text;
+            s.Pass = tbPass.Text;
+            s.Port = int.Parse(tbPort.Text);
+            s.Sender = tbSender.Text;
+            s.Ssl = cbSsl.Checked;
         }
 
         private void btCancel_Click(object sender, EventArgs e) {
-            Close();
+            this.Close();
         }
     }
 }

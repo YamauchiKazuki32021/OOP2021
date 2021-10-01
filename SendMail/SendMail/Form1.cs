@@ -14,11 +14,14 @@ namespace SendMail
 {
     public partial class Form1 : Form
     {
+        //設定画面
+        private ConfigForm configForm = new ConfigForm();
+        private Settings s = Settings.getInstance();
         public Form1()
         {
             InitializeComponent();
         }
-        Settings s = new Settings();
+        
         private void btSend_Click(object sender, EventArgs e)
         {
             try
@@ -26,7 +29,7 @@ namespace SendMail
                 //メール送信のためのインスタンスを生成
                 MailMessage mailMessage = new MailMessage();
                 //差出人アドレス
-                mailMessage.From = new MailAddress("ojsinfosys01@gmail.com");
+                mailMessage.From = new MailAddress(s.MailAddr);
                 //宛先（To）
                 mailMessage.To.Add(tbTo.Text);
                 mailMessage.CC.Add(tbCc.Text);
@@ -41,10 +44,10 @@ namespace SendMail
                 SmtpClient smtpClient = new SmtpClient();
                 //メール送信のための認証情報を設定（ユーザー名、パスワード）
                 smtpClient.Credentials
-                    = new NetworkCredential(Settings.MailAddr,Settings.Pass);
-                smtpClient.Host = Settings.Host;
-                smtpClient.Port = Settings.Port;
-                smtpClient.EnableSsl = Settings.Ssl;
+                    = new NetworkCredential(s.MailAddr,s.Pass);
+                smtpClient.Host = s.Host;
+                smtpClient.Port = s.Port;
+                smtpClient.EnableSsl = s.Ssl;
                 smtpClient.Send(mailMessage);
 
                 MessageBox.Show("送信完了");
