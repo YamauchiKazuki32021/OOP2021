@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Runtime.Serialization;
 
 
 namespace SendMail
@@ -36,11 +37,18 @@ namespace SendMail
 
         private void btOk_Click(object sender, EventArgs e) {
             SettingRegist();//送信データ登録
-            this.Close();
-            var set = new Settings {
+            
 
-            }
-              
+            //var set = Settings.getInstance();
+            //set.Host = tbHost.Text;
+            //set.MailAddr = tbUserName.Text;
+            //set.Pass = tbPass.Text;
+            //set.Port = int.Parse(tbPort.Text);
+            //set.Sender = tbSender.Text;
+            //set.Ssl = cbSsl.Checked;
+
+            
+            this.Close();
 
         }
         //送信データ登録
@@ -51,6 +59,16 @@ namespace SendMail
             s.Port = int.Parse(tbPort.Text);
             s.Sender = tbSender.Text;
             s.Ssl = cbSsl.Checked;
+
+            var xws = new XmlWriterSettings {
+                Encoding = new System.Text.UTF8Encoding(false),
+                Indent = true,
+                IndentChars = "",
+            };
+            using (var writer = XmlWriter.Create("Settings.xml", xws)) {
+                var serial = new DataContractSerializer(xws.GetType());
+                serial.WriteObject(writer, xws);
+            }
         }
 
         private void btCancel_Click(object sender, EventArgs e) {
