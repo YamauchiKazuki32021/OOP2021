@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace SendMail
 {
@@ -25,6 +28,14 @@ namespace SendMail
        public static Settings getInstance() {
             if(instance == null) {
                 instance = new Settings();
+                try {
+                    XElement element = XElement.Load("Settings.xml");
+                    using(var reader = XmlReader.Create("Setting.xml")) {
+                        var serial = new DataContractSerializer(typeof(Settings));
+                        var set = serial.ReadObject(reader) as Settings;
+                        
+                    }
+                }
             }
             return instance;
         }

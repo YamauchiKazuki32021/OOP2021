@@ -86,10 +86,9 @@ namespace SendMail
 
         private void Form1_Load(object sender, EventArgs e) {
             try {
-                //XElement element = XElement.Load("Settings.xml");
                 using (var reader = XmlReader.Create("Settings.xml")) {
-                    var serial = new DataContractSerializer(typeof(ConfigForm));
-                    var set = serial.ReadObject(reader) as ConfigForm;
+                    var serial = new DataContractSerializer(typeof(Settings));
+                    var set = serial.ReadObject(reader) as Settings;
                     
 
                 }
@@ -98,6 +97,8 @@ namespace SendMail
                 new ConfigForm().ShowDialog();
                 
             }
+
+            
             
         }
     }
