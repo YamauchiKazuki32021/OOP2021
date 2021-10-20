@@ -114,6 +114,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendMail", "SendMail\SendMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Section04_Json", "Chapter14\Section04_Json\Section04_Json.csproj", "{96D004F7-3004-4E36-B4BC-A7D14D84F3D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleEntityFramework", "EntityFramework\SampleEntityFramework\SampleEntityFramework.csproj", "{E5B4903E-3E8C-4F78-8E35-FC179E54BB7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter13", "Chapter13", "{BFB83DBA-B8F0-44FB-9D93-80D2EC4BA663}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -264,6 +268,10 @@ Global
 		{96D004F7-3004-4E36-B4BC-A7D14D84F3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96D004F7-3004-4E36-B4BC-A7D14D84F3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D004F7-3004-4E36-B4BC-A7D14D84F3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B4903E-3E8C-4F78-8E35-FC179E54BB7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B4903E-3E8C-4F78-8E35-FC179E54BB7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B4903E-3E8C-4F78-8E35-FC179E54BB7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B4903E-3E8C-4F78-8E35-FC179E54BB7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -307,6 +315,7 @@ Global
 		{84625C4F-AE65-409E-B62F-9EF2BEBF3BD8} = {A5BD9086-72C8-40CA-8EFB-8CA5D3B0EA2F}
 		{1CA8B13F-3CB9-4BD9-AD54-BFDC28AC46D8} = {F63D335F-9290-4C4B-99BC-886832398D7E}
 		{96D004F7-3004-4E36-B4BC-A7D14D84F3D4} = {1C3260FC-3569-47A0-A874-BB9C1186C034}
+		{E5B4903E-3E8C-4F78-8E35-FC179E54BB7E} = {BFB83DBA-B8F0-44FB-9D93-80D2EC4BA663}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7FE0226-1FA1-4BDE-826C-7C32A0534B1F}
