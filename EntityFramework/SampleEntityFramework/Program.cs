@@ -35,11 +35,11 @@ namespace SampleEntityFramework {
             //Exercise13_1();
 
             Exercise13_2();
-
+            Console.WriteLine();
             Exercise13_3();
-
+            Console.WriteLine();
             Exercise13_4();
-
+            Console.WriteLine();
             Exercise13_5();
 
             Console.ReadLine();//F5で実行してもすぐコンソール画面が消えないようにする。
@@ -97,8 +97,8 @@ namespace SampleEntityFramework {
         }
         private static void Exercise13_2() {
             using (var db = new BooksDbContext()) {
-                foreach (var books in db.Books) {
-                    Console.WriteLine($"{books.Title}{books.Author.Name}");
+                foreach (var books in db.Books.ToList()) {
+                    Console.WriteLine("{0} {1}",books.Title,books.Author.Name);
                 }
             }
 
@@ -107,19 +107,33 @@ namespace SampleEntityFramework {
         private static void Exercise13_3() {
             using(var db = new BooksDbContext()) {
                 var books=db.Books.Where(x=>x.Title.Length == db.Books.Max(a=>a.Title.Length));
-                foreach (var item in books) {
-                    Console.WriteLine(item.Title);
+                foreach (var item in books.ToList()) {
+                    Console.WriteLine("{0} {1}",item.Title,item.Author.Name);
                 }
                      
             }
         }
 
         private static void Exercise13_4() {
-            
+            using (var db = new BooksDbContext()) {
+                var books = db.Books.OrderBy(a=>a.PublishedYear).ToList().Take(3);
+                foreach (var item in books) {
+                    Console.WriteLine("{0} {1}",item.Title,item.Author.Name);
+                }
+            }
         }
 
         private static void Exercise13_5() {
-            
+            using(var db = new BooksDbContext()) {
+                var authors = db.Authors.OrderByDescending(a => a.Birthday).ToList();
+                foreach (var item in authors) {
+                    Console.WriteLine("{0} {1:yyyy/MM}",item.Name,item.Birthday);
+                    foreach (var book in item.Books.ToList()) {
+                        Console.WriteLine("{0} {1}", book.Title, book.PublishedYear);
+                    }
+                    Console.WriteLine();
+                }
+            }
         }
 
        
