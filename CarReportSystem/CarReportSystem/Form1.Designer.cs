@@ -24,7 +24,7 @@ namespace CarReportSystem {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
-            this.dgvRegistData = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,23 +55,24 @@ namespace CarReportSystem {
             this.ofdPictureOpen = new System.Windows.Forms.OpenFileDialog();
             this.ofdFileOpen = new System.Windows.Forms.OpenFileDialog();
             this.sfdFileSave = new System.Windows.Forms.SaveFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistData)).BeginInit();
+            this.infosys202105DataSet = new CarReportSystem.infosys202105DataSet();
+            this.carReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carReportTableAdapter = new CarReportSystem.infosys202105DataSetTableAdapters.CarReportTableAdapter();
+            this.tableAdapterManager = new CarReportSystem.infosys202105DataSetTableAdapters.TableAdapterManager();
+            this.carReportDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.gbMaker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infosys202105DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carReportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carReportDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvRegistData
-            // 
-            this.dgvRegistData.AllowUserToAddRows = false;
-            this.dgvRegistData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegistData.Location = new System.Drawing.Point(100, 379);
-            this.dgvRegistData.MultiSelect = false;
-            this.dgvRegistData.Name = "dgvRegistData";
-            this.dgvRegistData.RowTemplate.Height = 21;
-            this.dgvRegistData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegistData.Size = new System.Drawing.Size(877, 256);
-            this.dgvRegistData.TabIndex = 0;
-            this.dgvRegistData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistData_CellClick);
             // 
             // label1
             // 
@@ -294,7 +295,7 @@ namespace CarReportSystem {
             this.btOpen.Name = "btOpen";
             this.btOpen.Size = new System.Drawing.Size(86, 28);
             this.btOpen.TabIndex = 17;
-            this.btOpen.Text = "開く...";
+            this.btOpen.Text = "接続";
             this.btOpen.UseVisualStyleBackColor = true;
             this.btOpen.Click += new System.EventHandler(this.btOpen_Click_1);
             // 
@@ -305,7 +306,7 @@ namespace CarReportSystem {
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(86, 30);
             this.btSave.TabIndex = 18;
-            this.btSave.Text = "保存...";
+            this.btSave.Text = "更新";
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click_1);
             // 
@@ -370,11 +371,96 @@ namespace CarReportSystem {
             // 
             this.ofdFileOpen.FileName = "openFileDialog1";
             // 
+            // infosys202105DataSet
+            // 
+            this.infosys202105DataSet.DataSetName = "infosys202105DataSet";
+            this.infosys202105DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // carReportBindingSource
+            // 
+            this.carReportBindingSource.DataMember = "CarReport";
+            this.carReportBindingSource.DataSource = this.infosys202105DataSet;
+            // 
+            // carReportTableAdapter
+            // 
+            this.carReportTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CarReportTableAdapter = this.carReportTableAdapter;
+            this.tableAdapterManager.UpdateOrder = CarReportSystem.infosys202105DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // carReportDataGridView
+            // 
+            this.carReportDataGridView.AutoGenerateColumns = false;
+            this.carReportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.carReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewImageColumn1});
+            this.carReportDataGridView.DataSource = this.carReportBindingSource;
+            this.carReportDataGridView.Location = new System.Drawing.Point(114, 379);
+            this.carReportDataGridView.MultiSelect = false;
+            this.carReportDataGridView.Name = "carReportDataGridView";
+            this.carReportDataGridView.RowTemplate.Height = 21;
+            this.carReportDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.carReportDataGridView.Size = new System.Drawing.Size(863, 256);
+            this.carReportDataGridView.TabIndex = 24;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CreatedDate";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CreatedDate";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Author";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Maker";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Maker";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "CarName";
+            this.dataGridViewTextBoxColumn5.HeaderText = "CarName";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Report";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Report";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "Picture";
+            this.dataGridViewImageColumn1.HeaderText = "Picture";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 647);
+            this.ClientSize = new System.Drawing.Size(997, 655);
+            this.Controls.Add(this.carReportDataGridView);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btExit);
             this.Controls.Add(this.cbAuthor);
@@ -396,24 +482,23 @@ namespace CarReportSystem {
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvRegistData);
             this.MaximizeBox = false;
             this.Name = "fmMain";
             this.ShowIcon = false;
             this.Text = "試乗レポート管理システム";
             this.Load += new System.EventHandler(this.fmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistData)).EndInit();
             this.gbMaker.ResumeLayout(false);
             this.gbMaker.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infosys202105DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carReportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carReportDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvRegistData;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -444,6 +529,18 @@ namespace CarReportSystem {
         private System.Windows.Forms.OpenFileDialog ofdPictureOpen;
         private System.Windows.Forms.OpenFileDialog ofdFileOpen;
         private System.Windows.Forms.SaveFileDialog sfdFileSave;
+        private infosys202105DataSet infosys202105DataSet;
+        private System.Windows.Forms.BindingSource carReportBindingSource;
+        private infosys202105DataSetTableAdapters.CarReportTableAdapter carReportTableAdapter;
+        private infosys202105DataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView carReportDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }
 
