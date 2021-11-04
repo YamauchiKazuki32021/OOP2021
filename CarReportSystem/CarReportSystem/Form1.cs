@@ -89,7 +89,7 @@ namespace CarReportSystem {
                     rbImport.Checked = true;
                     break;
                 case CarReport.MakerGroup.その他:
-                    rbImport.Checked = true;
+                    rbOther.Checked = true;
                     break;
                 default:    //その他
                     rbOther.Checked = true;
@@ -202,21 +202,29 @@ namespace CarReportSystem {
         private void carReportDataGridView_SelectionChanged(object sender, EventArgs e) {
             if (carReportDataGridView.CurrentRow == null) return;
             try {
+                ssErrorLabel.Text = "";
                 dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value;
                 cbAuthor.Text = carReportDataGridView.CurrentRow.Cells[2].Value.ToString();
-                setMakerRadioButton((CarReport.MakerGroup)Enum.Parse(typeof(CarReport.MakerGroup),carReportDataGridView.CurrentRow.Cells[3].Value.ToString()));//メーカー（文字列→列挙型）
+                var mk=((CarReport.MakerGroup)Enum.Parse(typeof(CarReport.MakerGroup),carReportDataGridView.CurrentRow.Cells[3].Value.ToString()));//メーカー（文字列→列挙型）
+                setMakerRadioButton(mk);
                 cbCarName.Text = carReportDataGridView.CurrentRow.Cells[4].Value.ToString();
                 tbReport.Text = carReportDataGridView.CurrentRow.Cells[5].Value.ToString();
                 pbPicture.Image = ByteArrayToImage((byte[])carReportDataGridView.CurrentRow.Cells[6].Value);
-            } catch (Exception) {
+            } catch (InvalidCastException) {
                 pbPicture.Image = null;
+            }catch(Exception ex) {
+                //MessageBox.Show(ex.Message);
+                ssErrorLabel.Text = ex.Message;
             }
         }
 
         // バイト配列をImageオブジェクトに変換
         public static Image ByteArrayToImage(byte[] b) {
+            Image img = null;
+            if(b.Length > 0) {
             ImageConverter imgconv = new ImageConverter();
-            Image img = (Image)imgconv.ConvertFrom(b);
+            img = (Image)imgconv.ConvertFrom(b);
+            }
             return img;
         }
         // Imageオブジェクトをバイト配列に変換
