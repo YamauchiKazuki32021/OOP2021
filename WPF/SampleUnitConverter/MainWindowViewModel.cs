@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace SampleUnitConverter {
     public class MainWindowViewModel : ViewModel {
+        //自動実装プロパティ
         private double metricValue;
         private double imperialValue;
 
@@ -23,8 +24,17 @@ namespace SampleUnitConverter {
         public double MetricValue {
             get { return this.metricValue; }
             set {
-                this.metricValue = value; 
+                this.metricValue = value;
+                this.OnPropertyChanged();//Viewへ通知
             }
         }
+        public double ImperialValue {
+            get { return this.imperialValue; }
+            set {
+                this.imperialValue = value;
+                this.OnPropertyChanged();//Viewへ通知
+            }
+        }
+
     }
 }
