@@ -36,6 +36,7 @@ namespace NumberGame {
             } else {
                 if(number > int.Parse(random).ToString()) {
 
+
                 }
             }
         }
