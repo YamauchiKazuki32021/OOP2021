@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NumberGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="540" Width="465">
+        x:Name="MainForm"
+        Title="MainWindow" Height="540" Width="465" Loaded="MainDisp_Loaded">
     
-    <Grid>
-        <Grid.RowDefinitions>
+
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="90"/>
             <RowDefinition Height="90"/>
@@ -22,9 +23,9 @@
             <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="90"/>
             <ColumnDefinition Width="90"/>
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
         
-        <Button Grid.Column="0" FontSize="60" Grid.Row="0" Content="1" Click="Button_Click"></Button>
+        <!--<Button Grid.Column="0" FontSize="60" Grid.Row="0" Content="1" Click="Button_Click"></Button>
         <Button Grid.Column="1" FontSize="60" Grid.Row="0" Content="2" Click="Button_Click"></Button>
         <Button Grid.Column="2" FontSize="60" Grid.Row="0" Content="3" Click="Button_Click"></Button>
         <Button Grid.Column="3" FontSize="60" Grid.Row="0" Content="4" Click="Button_Click"></Button>
@@ -52,11 +53,15 @@
         <Button Grid.Column="1" FontSize="60" Grid.Row="4" Content="22" Click="Button_Click"></Button>
         <Button Grid.Column="2" FontSize="60" Grid.Row="4" Content="23" Click="Button_Click"></Button>
         <Button Grid.Column="3" FontSize="60" Grid.Row="4" Content="24" Click="Button_Click"></Button>
-        <Button Grid.Column="4" FontSize="60" Grid.Row="4" Content="25" Click="Button_Click"></Button>
-        <TextBox x:Name="tbAns" Grid.ColumnSpan="5" TextWrapping="Wrap" Margin="0,95,0,-64" Grid.Row="4" FontSize="16"/>
+        <Button Grid.Column="4" FontSize="60" Grid.Row="4" Content="25" Click="Button_Click"></Button>-->
+        
+
+
+    <StackPanel>
+            <Grid x:Name="grid"/>
+            <TextBlock x:Name="tbAns" Height="30" FontSize="15" TextWrapping="Wrap"/>
+        </StackPanel>
 
 
 
-
-    </Grid>
 </Window>
