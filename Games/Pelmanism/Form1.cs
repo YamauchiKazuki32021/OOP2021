@@ -33,6 +33,28 @@ namespace Pelmanism {
         private void FormGame_Load(object sender, EventArgs e) {
             //カードの生成
             CreateCards(ref playingCards);
+            //プレイヤーの生成
+            player = new Player();
+
+            //カードをフォームに動的に配置する。
+            SuspendLayout();
+
+            const int offsetX = 30, offsetY = 50;
+            for (int i = 0; i < playingCards.Length; i++) {
+                //カード(ボタン)のプロパティを設定する。
+                playingCards[i].Name = "card" + i;
+                int sizeW = playingCards[i].Size.Width;
+                int sizeH = playingCards[i].Size.Height;
+                playingCards[i].Location = new Point(offsetX + i % 8 * sizeW, offsetY + i / 8 * sizeH);
+                playingCards[i].Click += CardsButtons_Click;
+            }
+            Controls.AddRange(playingCards);
+            ResumeLayout(false);
+            labelGuidance.Text = "スタートボタンをクリックしてゲームを開始してください。";
+        }
+
+        private void CardsButtons_Click(object sender, EventArgs e) {
+            throw new NotImplementedException();
         }
     }
 }

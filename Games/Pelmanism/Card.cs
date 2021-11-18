@@ -24,6 +24,7 @@ namespace Pelmanism {
             Picture = picture;
             State = false;
             Size = new Size(SizeW, SizeH);
+            BackColor = CloseColor;
             Font = new Font("MS UI Gothic",14,FontStyle.Bold);
             Enabled = false;
         }
