@@ -163,7 +163,7 @@ namespace Pelmanism {
                 
             } else if (duration > 0) {
                 duration--;
-                labelSec.Text = duration.ToString();
+                labelSec.Text = "残り"+duration.ToString()+"秒";
             }
             //gameSec++;
             //labelSec.Text = gameSec + "秒経過";

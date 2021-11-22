@@ -35,9 +35,9 @@
             this.labelSec.AutoSize = true;
             this.labelSec.Location = new System.Drawing.Point(13, 13);
             this.labelSec.Name = "labelSec";
-            this.labelSec.Size = new System.Drawing.Size(17, 12);
+            this.labelSec.Size = new System.Drawing.Size(53, 12);
             this.labelSec.TabIndex = 0;
-            this.labelSec.Text = "60";
+            this.labelSec.Text = "制限時間";
             // 
             // labelGuidance
             // 
