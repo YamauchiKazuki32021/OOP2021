@@ -40,7 +40,7 @@ namespace Pelmanism {
         public void Close() {
             State = false;//裏
             BackColor = CloseColor;
-            Text = Picture;
+            Text = "";
             Enabled = true;//選択不可
         }
 
