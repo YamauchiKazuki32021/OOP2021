@@ -147,18 +147,26 @@ namespace Pelmanism {
             string b;
             for (int i = 0; i < playingCards.Length; i++) {
                 int a = random.Next(i);
-                b=cards[a].Picture;
+                b = cards[a].Picture;
                 cards[a].Picture = cards[i].Picture;
                 cards[i].Picture = b;
             }
         }
-
-    
-
-
+        private int duration = 60;
         private void timer1_Tick(object sender, EventArgs e) {
-            gameSec++;
-            labelSec.Text = gameSec + "秒経過";
+            if (duration == 0) {
+                timer1.Stop();
+                buttonStart.Enabled = true;
+                foreach (var item in playingCards) {
+                    item.Open();
+                }
+                
+            } else if (duration > 0) {
+                duration--;
+                labelSec.Text = duration.ToString();
+            }
+            //gameSec++;
+            //labelSec.Text = gameSec + "秒経過";
         }
     }
 }
